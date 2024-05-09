@@ -1,8 +1,8 @@
 {
   "name": "moe-replay-frontend",
   "version": "0.1.0",
-  "private": false,
   "license": "MIT",
+  "private": false,
   "repository": {
     "url": "https://github.com/realeyes-media/moe-replay-frontend"
   },

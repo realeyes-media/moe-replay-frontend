@@ -1,17 +1,17 @@
-import React, { FunctionComponent, useState } from 'react';
-import { Livestream } from 'library/api/index';
-import { toast } from 'react-toastify';
+import React, { FunctionComponent, useState } from "react";
+import { Livestream } from "library/api/index";
+import { toast } from "react-toastify";
 
 // @TODO: move this to constants
 const MOE_VIEWER_URL =
-  process.env.REACT_APP_MOE_VIEWER_URL || 'https://mv-dev.realeyes.cloud';
+  process.env.REACT_APP_MOE_VIEWER_URL || "https://mv.realeyes.cloud";
 
 enum StatusCellStatus {
-  ACTIVE = 'ACTIVE',
-  PENDING = 'PENDING',
-  ERRORED = 'ERRORED',
-  ENDED = 'ENDED',
-  UNKNOWN = 'UNKNOWN',
+  ACTIVE = "ACTIVE",
+  PENDING = "PENDING",
+  ERRORED = "ERRORED",
+  ENDED = "ENDED",
+  UNKNOWN = "UNKNOWN",
 }
 
 interface StatusTableCellProps {
@@ -22,19 +22,19 @@ interface StatusTableCellProps {
 function colorFromStatus(status: StatusCellStatus): string {
   switch (status) {
     case StatusCellStatus.ACTIVE: {
-      return 'bg-green-300';
+      return "bg-green-300";
     }
     case StatusCellStatus.PENDING: {
-      return 'bg-yellow-300';
+      return "bg-yellow-300";
     }
     case StatusCellStatus.ERRORED: {
-      return 'bg-red-300';
+      return "bg-red-300";
     }
     case StatusCellStatus.ENDED: {
-      return 'bg-blue-300';
+      return "bg-blue-300";
     }
     case StatusCellStatus.UNKNOWN: {
-      return 'bg-gray-300';
+      return "bg-gray-300";
     }
   }
 }
@@ -59,7 +59,7 @@ const StatusCell: FunctionComponent<StatusTableCellProps> = ({
         <span
           className={`${color} px-4 py-4 rounded-full inline-block  align-middle`}
         >
-          {' '}
+          {" "}
         </span>
       </button>
     </td>
@@ -169,7 +169,7 @@ const ActionsCell: FunctionComponent<ActionsCellProps> = ({
       <div className="flex items-center space-x-4 text-sm">
         <button
           className={`flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-white bg-blue-300 hover:bg-blue-600 rounded-lg ${
-            hidePlay ? 'hidden' : ''
+            hidePlay ? "hidden" : ""
           }`}
           aria-label="Start Livestream"
           type="button"
@@ -231,16 +231,16 @@ interface HomeTableRowProps {
 
 function statusFromLivestream(livestream: Livestream): StatusCellStatus {
   switch (livestream.status) {
-    case 'ACTIVE': {
+    case "ACTIVE": {
       return StatusCellStatus.ACTIVE;
     }
-    case 'PENDING': {
+    case "PENDING": {
       return StatusCellStatus.PENDING;
     }
-    case 'ERRORED': {
+    case "ERRORED": {
       return StatusCellStatus.ERRORED;
     }
-    case 'ENDED': {
+    case "ENDED": {
       return StatusCellStatus.ENDED;
     }
     default: {
@@ -251,7 +251,7 @@ function statusFromLivestream(livestream: Livestream): StatusCellStatus {
 
 function getFormattedLastRequestTime(epochTime: number): string {
   if (epochTime <= 0) {
-    return '--:--:--';
+    return "--:--:--";
   }
   const date = new Date(epochTime);
   const hours = `0${date.getHours()}`.slice(-2);
@@ -280,13 +280,13 @@ const HomeTableRow: FunctionComponent<HomeTableRowProps> = ({
   );
   const urlObjects: MultipleURLsCellObject[] = [
     {
-      name: 'Live',
-      url: `${livestream.liveURL || ''}`,
+      name: "Live",
+      url: `${livestream.liveURL || ""}`,
       href: livestream.liveURL
         ? buildMoeViewerURL(livestream.liveURL)
         : undefined,
     },
-    { name: 'Manifest', url: livestream.manifest },
+    { name: "Manifest", url: livestream.manifest },
   ];
   return (
     <tr className="text-gray-500" key={id}>
