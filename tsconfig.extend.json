@@ -1,0 +1,19 @@
+{
+  "extends": "eslint-config-wesbos/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@library/*": ["library/*"],
+      "@api/*": ["library/api/*"],
+      "@common/*": ["library/common/*"],
+      "@utilities/*": ["library/utilities/*"],
+      "@resources/*": ["resources/*"],
+      "@images/*": ["resources/images/*"],
+      "@seed/*": ["resources/seed/*"],
+      "@styles/*": ["resources/styles/*"],
+      "@main/*": ["main/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}

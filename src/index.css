@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.tooltip-target .tooltip-text {
+  @apply invisible absolute z-50 inline-block;
+}
+
+.tooltip-target:hover .tooltip-text {
+  @apply md:visible;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
